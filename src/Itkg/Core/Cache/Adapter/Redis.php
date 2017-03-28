@@ -50,6 +50,10 @@ class Redis extends AdapterAbstract implements AdapterInterface
             }
         }
 
+        if (isset($this->config['default']['database'])) {
+            $this->connection->select($this->config['default']['database']);
+        }
+
         return $this->connection;
     }
 
